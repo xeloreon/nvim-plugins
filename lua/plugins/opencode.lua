@@ -1,4 +1,4 @@
-local opencode_cmd = "opencode --port"
+local opencode_cmd = "opencode"
 
 ---@type snacks.terminal.Opts
 local snacks_terminal_opts = {
@@ -13,7 +13,7 @@ local function start_server()
   if ok and snacks.terminal then
     snacks.terminal.open(opencode_cmd, snacks_terminal_opts)
   else
-    vim.cmd("vsplit term://opencode --port | wincmd p")
+    vim.cmd("vsplit term://opencode | wincmd p")
   end
 end
 

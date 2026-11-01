@@ -2,11 +2,34 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  keys = {
+    {
+      "<leader>e",
+      function()
+        Snacks.explorer({ cwd = LazyVim.root() })
+      end,
+      desc = "Explorer (project root)",
+    },
+    {
+      "<leader>E",
+      function()
+        Snacks.explorer({ cwd = vim.fn.getcwd() })
+      end,
+      desc = "Explorer (cwd)",
+    },
+    {
+      "<leader>fe",
+      function()
+        Snacks.explorer.reveal()
+      end,
+      desc = "Reveal current file in explorer",
+    },
+  },
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
     dashboard = { enabled = false },
-    explorer = { enabled = false },
+    explorer = { enabled = true },
     indent = {
       indent = {
         enabled = true,
